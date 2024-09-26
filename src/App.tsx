@@ -1,17 +1,26 @@
-import { Canvas, useFrame, useLoader } from "@react-three/fiber";
-import { useEffect, useRef, Suspense } from "react";
-import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-import * as THREE from 'three';
+import { ThemeProvider } from "./contexts/theme-provider";
 import { RubiksCube } from "./components/Rubiks/rubiks";
-
+import { TypewriterEffect } from "./components/ui/typewriter-effect";
+import { ModeToggle } from "./components/ui/mode-toggle";
 
 
 const App = () => {
+  const words = [
+    {
+      text: "James",
+    },
+    {
+      text: "Tu",
+    }
+  ]
 
   return (
-    <main>
+    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+      <ModeToggle />
       <RubiksCube/>
-    </main>
+      <div className="bg-white">Hello</div>
+      <TypewriterEffect words={words}/>
+    </ThemeProvider>
   )
 }
 
