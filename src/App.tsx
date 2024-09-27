@@ -1,25 +1,13 @@
 import { ThemeProvider } from "./contexts/theme-provider";
-import { RubiksCube } from "./components/Rubiks/rubiks";
-import { TypewriterEffect } from "./components/ui/typewriter-effect";
-import { ModeToggle } from "./components/ui/mode-toggle";
+import { Skills } from "./components/Sections/Skills/skills";
+import { Hero } from "./components/Sections/Hero/hero";
 
 
 const App = () => {
-  const words = [
-    {
-      text: "James",
-    },
-    {
-      text: "Tu",
-    }
-  ]
-
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-      <ModeToggle />
-      <RubiksCube/>
-      <div className="bg-white">Hello</div>
-      <TypewriterEffect words={words}/>
+      <Hero/>
+      <Skills/>
     </ThemeProvider>
   )
 }

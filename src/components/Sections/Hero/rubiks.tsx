@@ -31,12 +31,12 @@ const MeshComponent = () => {
 
 export const RubiksCube = () => {
   return (
-    <div className='flex justify-center items-center h-48'>
-    <Canvas className='h-2xl w-2xl'>
-      <ambientLight />
-      <pointLight position={[10, 10, 10]} />
-      <MeshComponent />
-    </Canvas>
-  </div>
+    <div className='flex justify-center items-center h-[25rem] bg-clip-text'>
+      <Canvas className='h-2xl w-2xl'>
+        <ambientLight />
+        <pointLight position={[10, 10, 10]} />
+        <MeshComponent />
+      </Canvas>
+    </div>
   )
 }
