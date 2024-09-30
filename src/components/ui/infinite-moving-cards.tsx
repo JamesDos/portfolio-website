@@ -74,14 +74,14 @@ export const InfiniteMovingCards = ({
     <div
       ref={containerRef}
       className={cn(
-        "scroller relative z-20  max-w-8xl overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_30%,white_70%,transparent)]",
+        "scroller max-h-4xl max-w-8xl overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_30%,white_70%,transparent)]",
         className
       )}
     >
       <ul
         ref={scrollerRef}
         className={cn(
-          " flex min-w-full shrink-0 gap-4 py-4 w-max flex-nowrap",
+          " flex min-w-full shrink-0 gap-6 py-4 w-max flex-nowrap",
           start && "animate-scroll ",
           pauseOnHover && "hover:[animation-play-state:paused]"
         )}
@@ -90,12 +90,12 @@ export const InfiniteMovingCards = ({
           <div>
             <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-blue-300 to-transparent" />
             <li
-              className="size-40 max-w-full relative rounded-2xl border border-b-0 flex-shrink-0 border-slate-700 px-8 py-6 md:size-40 bg-slate-800"
-              key={idx}
-              // style={{
-              //   background:
-              //     "linear-gradient(180deg, var(--slate-800), var(--slate-900)",
-              // }}
+              className="size-40 max-w-full relative rounded-2xl border border-b-0 flex-shrink-0 border-slate-700 px-8 py-6 md:size-40"
+              key={item.skill}
+              style={{
+                background:
+                  "linear-gradient(180deg, var(--slate-700), var(--slate-800)",
+              }}
             >
               <SkillsCard
                 icon={item.icon}

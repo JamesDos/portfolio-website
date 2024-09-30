@@ -11,13 +11,6 @@ export const Skills = () => {
           speed="slow"
         />
       </div>
-      {/* <div>
-        <InfiniteMovingCards 
-          items={skillsDataFrontEnd} 
-          direction="left" 
-          speed="slow"
-        />
-      </div> */}
       <div>
         <InfiniteMovingCards 
           items={skillsDataBackEnd} 
@@ -25,13 +18,6 @@ export const Skills = () => {
           speed="slow"
         />
       </div>
-      {/* <div>
-        <InfiniteMovingCards 
-          items={skillsDataTools} 
-          direction="left" 
-          speed="slow"
-        />
-      </div> */}
     </section>
   )
 }
