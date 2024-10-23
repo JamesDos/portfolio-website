@@ -3,7 +3,8 @@ import { skillsDataFrontEnd, skillsDataBackEnd } from "@/utils/data/skills-data"
 
 export const Skills = () => {
   return (
-    <section>
+    <section className="py-8">
+      <h2 className="text-3xl font-bold text-center mb-8">Skills</h2>
       <div>
         <InfiniteMovingCards 
           items={skillsDataFrontEnd} 
