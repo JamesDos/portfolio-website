@@ -1,8 +1,11 @@
 import { ProjectCardProps } from "@/components/Sections/Projects/project-card"
 import DivvyAI from "/images/DivvyAI.png"
 import JChess from "/images/JChess_Game.png"
-import Scribe from "/images/Scribe_login.png"
+import ScribeLogin from "/images/Scribe_login.png"
+import ScribeFeed from "/images/Scribe_Feed.png"
+import ScribeSearch from "/images/Scribe_Search.png"
 import DiabetesPredictor from "/images/Diabetes_Predictor.png"
+
 
 export const projectData : {title: string, content: ProjectCardProps}[] = [
   {
@@ -11,7 +14,7 @@ export const projectData : {title: string, content: ProjectCardProps}[] = [
       description: "DivvyAI is an AI powered calendar web app that automates task division and scheduling for students.",
       tech: ["TypeScript", "React", "Node.js", "Express", "MongoDB", "TailwindCSS"],
       githubLink: "https://github.com/JamesDos/JChess",
-      imageLink: JChess 
+      imageLinks: [JChess] 
     }
   },
   {
@@ -20,7 +23,7 @@ export const projectData : {title: string, content: ProjectCardProps}[] = [
       description: "DivvyAI is an AI powered calendar web app that automates task division and scheduling for students.",
       tech: ["React", "Next.js", "TypeScript", "Supabase", "Google Cloud", "OpenAI", "Pinata"],
       githubLink: "https://github.com/AndrewCheung360/DivvyAI",
-      imageLink: DivvyAI 
+      imageLinks: [DivvyAI ]
     }
   },
   {
@@ -29,7 +32,7 @@ export const projectData : {title: string, content: ProjectCardProps}[] = [
       description: "DivvyAI is an AI powered calendar web app that automates task division and scheduling for students.",
       tech: ["Python", "SQLite", "SQLAlchemy", "Docker", "Google Cloud", "Git"],
       githubLink: "https://github.com/AndrewCheung360/Scribe",
-      imageLink: Scribe
+      imageLinks: [ScribeLogin, ScribeFeed, ScribeSearch]
     }
   },
   {
@@ -38,7 +41,7 @@ export const projectData : {title: string, content: ProjectCardProps}[] = [
       description: "DivvyAI is an AI powered calendar web app that automates task division and scheduling for students.",
       tech: ["Python", "Pandas", "Scikit-learn", "Matplotlib", "Seaborn"],
       githubLink: "https://github.com/JamesDos/diabetes-predictor",
-      imageLink: DiabetesPredictor
+      imageLinks: [DiabetesPredictor]
     }
   },
 

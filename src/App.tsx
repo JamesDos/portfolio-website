@@ -4,6 +4,7 @@ import { Hero } from "./components/Sections/Hero/hero";
 import { NavBar } from "./components/navbar";
 import { Projects } from "./components/Sections/Projects/projects";
 import { Contact } from "./components/Sections/Contact/contact";
+import { About } from "./components/Sections/About/about";
 
 const App = () => {
   return (
@@ -11,6 +12,9 @@ const App = () => {
       <NavBar/>
       <section id="hero">
         <Hero/>
+      </section>
+      <section className="flex justify-center" id="about">
+        <About/>
       </section>
       <section id="skills">
         <Skills/>
