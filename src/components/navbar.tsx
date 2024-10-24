@@ -25,10 +25,19 @@ const links = [
 ]
 
 export const NavBar = () => {
+  const handleReload = () => {
+    window.location.reload();
+  }
+
   return (
     <nav className="">
       <div className="container mx-auto flex items-center justify-between py-5 px-4">
-        <div className="text-white text-2xl font-bold">James Tu</div>
+        <div 
+          className="text-white text-2xl font-bold cursor-pointer"
+          onClick={handleReload}
+        >
+          James Tu
+        </div>
         <ul className="mt-4 flex h-screen max-h-0 w-full flex-col gap-4 items-start text-lg opacity-0 md:mt-0 md:h-auto md:max-h-screen md:w-auto md:flex-row md:space-x-4 md:border-0 md:opacity-100">
           {
             links.map((link, idx) => {
@@ -59,7 +68,7 @@ const NavItem = (props: NavItemProps) => {
       }}
     >
       <motion.li
-        className="relative py-2 md:py-0"
+        className="relative py-2 md:py-0 cursor-pointer"
         whileHover={{ scale: 1.1, y: -4 }}
         transition={{ duration: 0.2 }}
       >

@@ -1,4 +1,10 @@
 import { motion } from "framer-motion";
+import { getSkillIconSrc } from "@/utils/data/getIconSrc";
+
+export interface TechData {
+  title: string;
+  iconSrc: string;
+}
 
 export interface ProjectCardProps {
   description: string;
@@ -17,9 +23,9 @@ export const ProjectCard = (props: ProjectCardProps) => {
     >
       <div className="flex flex-col">
         <h2 className="font-bold text-xl mb-4">{props.description}</h2>
-        <ul className="flex space-x-2 mb-4">
+        <ul className="flex space-x-2 mb-4 gap-2">
           {props.tech.map((techItem, index) => (
-            <li className="flex items-center space-x-1"key={index}>{techItem}</li>
+            <TechBadge key={index} tech={techItem} className="project-tech-badge"/>
           ))}
         </ul>
         <div className="flex gap-4 w-full justify-center">
@@ -34,12 +40,34 @@ export const ProjectCard = (props: ProjectCardProps) => {
         </div>
         <div className="flex justify-center w-full mt-2">
           <a href={props.githubLink} target="_blank" rel="noopener noreferrer">
-            <button className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 transition duration-300 transform hover:-translate-y-1">
+            <motion.button 
+              className="bg-blue-500 text-white py-2 px-4 rounded-md transition-colors duration-300"
+              whileHover={{ backgroundColor: "#FFFFFF", color: "#3b82f6", scale: 1.1, rotate: "-5deg"}}
+              transition={{ duration: 0.125 }}
+            >
               Link
-            </button>
+            </motion.button>
           </a>
         </div>
       </div>
+    </motion.div>
+  )
+}
+
+interface TechBadgeProps {
+  tech: string;
+  className?: string;
+}
+
+const TechBadge = (props: TechBadgeProps) => {
+  return (
+    <motion.div 
+      className="flex items-center gap-2"
+      whileHover={{ scale: 1.1, y: -2 }}
+      transition={{ duration: 0.2 }}
+    >
+      <img src={getSkillIconSrc(props.tech)} alt={props.tech} width={20} height={20}/>
+      <p>{props.tech}</p>
     </motion.div>
   )
 }
