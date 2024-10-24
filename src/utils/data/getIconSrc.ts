@@ -31,7 +31,7 @@ import supabase from "/skill-icons/supabase.svg";
 import sqlalchemy from "/skill-icons/SQLAlchemy.svg";
 import pandas from "/skill-icons/Pandas.svg";
 import nextjs from "/skill-icons/NextJS.svg";
-import matplotlib from "/skill-icons/matplotlib.svg";
+import matplotlib from "/skill-icons/Matplotlib.svg";
 import scikitlearn from "/skill-icons/scikit-learn.svg";
 import seaborn from "/skill-icons/seaborn.svg";
 import openai from "/skill-icons/openai.svg";
