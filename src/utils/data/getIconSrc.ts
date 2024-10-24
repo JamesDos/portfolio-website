@@ -27,7 +27,7 @@ import aws from "/skill-icons/AWS.svg";
 import gcp from "/skill-icons/GCP.svg";
 // import postman from "/skill-icons/Postman.svg";
 // Other
-import supabase from "/skill-icons/Supabase.svg";
+import supabase from "/skill-icons/supabase.svg";
 import sqlalchemy from "/skill-icons/SQLAlchemy.svg";
 import pandas from "/skill-icons/pandas.svg";
 import nextjs from "/skill-icons/NextJS.svg";
