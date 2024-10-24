@@ -11,7 +11,7 @@ export const projectData : {title: string, content: ProjectCardProps}[] = [
   {
     title: "JChess",
     content: {
-      description: "DivvyAI is an AI powered calendar web app that automates task division and scheduling for students.",
+      description: "JChess is a full-stack multiplayer chess website that allows users to play real-time games, send chat messages, analyze past games, and add/challenge friends.",
       tech: ["TypeScript", "React", "Node.js", "Express", "MongoDB", "TailwindCSS"],
       githubLink: "https://github.com/JamesDos/JChess",
       imageLinks: [JChess] 
@@ -29,7 +29,7 @@ export const projectData : {title: string, content: ProjectCardProps}[] = [
   {
     title: "Scribe",
     content: {
-      description: "DivvyAI is an AI powered calendar web app that automates task division and scheduling for students.",
+      description: "Scribe is a note-sharing Android app tailored for Cornell students, allowing users to publicly share class notes with other",
       tech: ["Python", "SQLite", "SQLAlchemy", "Docker", "Google Cloud", "Git"],
       githubLink: "https://github.com/AndrewCheung360/Scribe",
       imageLinks: [ScribeLogin, ScribeFeed, ScribeSearch]
@@ -38,7 +38,7 @@ export const projectData : {title: string, content: ProjectCardProps}[] = [
   {
     title: "Diabetes Predictor",
     content: {
-      description: "DivvyAI is an AI powered calendar web app that automates task division and scheduling for students.",
+      description: "In this project, I trained various different machine learning models to predict the presence of diabetes in patients.",
       tech: ["Python", "Pandas", "Scikit-learn", "Matplotlib", "Seaborn"],
       githubLink: "https://github.com/JamesDos/diabetes-predictor",
       imageLinks: [DiabetesPredictor]

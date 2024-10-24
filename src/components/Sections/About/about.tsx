@@ -1,6 +1,7 @@
 import HeadShot from "/images/James_Headshot.jpg"
-import { motion, useScroll, useTransform, useAnimation, useInView } from "framer-motion"
-import { useRef, useEffect } from "react"
+import { motion, useScroll, useTransform } from "framer-motion"
+import { useRef } from "react"
+import { Heading } from "../../ui/heading"
 
 export const About = () => {
   const targetRefLeft = useRef(null)
@@ -35,7 +36,7 @@ export const About = () => {
       >
         <h2 className="text-2xl font-bold">Hello World! I'm James Tu</h2>
         <hr className="h-1 bg-gradient-to-r from-purple via-blue-500 my-4 from-[0%] via-[20%]" />
-        <div>
+        <div className="text-lg">
           I am a software engineer and student at Cornell University studying Computer Science 
           with a minor in AI. I'm passionate about leveraging full-stack development and
           AI to create innovative solutions to real-world problems. I love solving puzzles, bringing ideas to life, and collaborating
@@ -56,7 +57,7 @@ export const About = () => {
           ease: [0.4, 0, 0.2, 1], // Ease-in and ease-out
         }}
       >
-        <h1 className="text-3xl font-bold mb-4">About Me</h1>
+        <Heading title="About Me"/>
         <img src={HeadShot} alt="James Tu" className="rounded-full w-64 h-64 mx-auto mt-8 mb-4" />
       </motion.div>
     </section>

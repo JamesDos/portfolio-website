@@ -9,22 +9,24 @@ import { About } from "./components/Sections/About/about";
 const App = () => {
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-      <NavBar/>
-      <section id="hero">
-        <Hero/>
-      </section>
-      <section className="flex justify-center" id="about">
-        <About/>
-      </section>
-      <section id="skills">
-        <Skills/>
-      </section>
-      <section id="projects">
-        <Projects/>
-      </section>
-      <section id="contact">
-        <Contact/>
-      </section>
+      <main className="scrollbar">
+        <NavBar/>
+        <section id="hero">
+          <Hero/>
+        </section>
+        <section className="flex justify-center" id="about">
+          <About/>
+        </section>
+        <section id="skills">
+          <Skills/>
+        </section>
+        <section id="projects">
+          <Projects/>
+        </section>
+        <section id="contact">
+          <Contact/>
+        </section>
+      </main>
     </ThemeProvider>
   )
 }

@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
 import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 export const InfiniteMovingCards = ({
   items,
@@ -87,36 +88,58 @@ export const InfiniteMovingCards = ({
         )}
       >
         {items.map((item, idx) => (
-          <div>
-            <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-blue-300 to-transparent" />
-            <li
-              className="size-40 max-w-full relative rounded-2xl border border-b-0 flex-shrink-0 border-slate-700 px-8 py-6 md:size-40"
-              key={item.skill}
-              style={{
-                background:
-                  "linear-gradient(180deg, var(--slate-700), var(--slate-800)",
-              }}
-            >
-              <SkillsCard
-                icon={item.icon}
-                alt={item.alt}
-                skill={item.skill}
-              />
-            </li>
-          </div>
+          <SkillsCard
+            key={idx}
+            icon={item.icon}
+            alt={item.alt}
+            skill={item.skill}
+          />
         ))}
       </ul>
     </div>
   );
 };
 
-interface SkillsCard {
+interface SkillsCardProps {
   icon: string,
   alt: string
   skill: string
 }
 
-const SkillsCard = (props: SkillsCard) => {
+const SkillsCard = (props: SkillsCardProps) => {
+  return (
+    <motion.div
+      whileHover={{ scale: 1.1 }}
+      transition={{
+        duration: 0.125,
+        ease: "easeInOut",
+      }}
+    >
+    <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-blue-300 to-transparent" />
+    <li
+      className="size-40 max-w-full relative rounded-2xl border border-b-0 flex-shrink-0 border-slate-700 px-8 py-6 md:size-40"
+      key={props.skill}
+      style={{
+      boxShadow: "0 0 10px 2px rgba(0, 0, 255, 0.5)", // Blue lighting effect
+      }}
+    >
+    <CardIcon
+      icon={props.icon}
+      alt={props.alt}
+      skill={props.skill}
+    />
+    </li>
+    </motion.div>
+  )
+}
+
+interface CardIconProps {
+  icon: string,
+  alt: string
+  skill: string
+}
+
+const CardIcon = (props: CardIconProps) => {
   return (
     <div className="flex flex-col justify-center items-center gap-2 size-full">
       <div className="size-10">

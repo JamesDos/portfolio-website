@@ -74,6 +74,9 @@ export default {
           },
         },
       },
+			boxShadow: {
+        'rainbow': '0 0 10px rgba(255, 0, 0, 0.5), 0 0 20px rgba(255, 127, 0, 0.5), 0 0 30px rgba(255, 255, 0, 0.5), 0 0 40px rgba(0, 255, 0, 0.5), 0 0 50px rgba(0, 0, 255, 0.5), 0 0 60px rgba(75, 0, 130, 0.5), 0 0 70px rgba(148, 0, 211, 0.5)',
+      },
   	}
   },
   plugins: [require("tailwindcss-animate"), addVariablesForColors],
