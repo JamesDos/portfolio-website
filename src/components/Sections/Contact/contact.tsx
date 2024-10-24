@@ -106,7 +106,7 @@ export const Contact = () => {
           </div>
           <motion.button 
             onClick={scrollToTop} 
-            whileHover={{ scale: 1, rotate: "360deg" }}
+            whileHover={{ scale: 1.1, rotate: "360deg" }}
             transition={{ duration: 0.3 }}
           >
             <svg viewBox="0 0 24 24"

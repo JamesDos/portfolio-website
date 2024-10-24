@@ -27,7 +27,7 @@ export const About = () => {
       <motion.div
         ref={targetRefLeft}
         style={{x: translateLeft}}
-        className="flex flex-col justify-center space-y-4 px-8"
+        className="flex flex-col justify-center space-y-4 px-8 text-lg"
         transition={{
           type: "tween",
           duration: 0.5,
@@ -36,7 +36,7 @@ export const About = () => {
       >
         <h2 className="text-2xl font-bold">Hello World! I'm James Tu</h2>
         <hr className="h-1 bg-gradient-to-r from-purple via-blue-500 my-4 from-[0%] via-[20%]" />
-        <div className="text-lg">
+        <div>
           I am a software engineer and student at Cornell University studying Computer Science 
           with a minor in AI. I'm passionate about leveraging full-stack development and
           AI to create innovative solutions to real-world problems. I love solving puzzles, bringing ideas to life, and collaborating
