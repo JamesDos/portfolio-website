@@ -1,33 +1,34 @@
 import { RubiksCube } from "./rubiks";
 import { BackgroundLines } from "@/components/ui/background-lines";
-import { TypewriterEffect } from "@/components/ui/typewriter-effect";
+import { useTypewriter, Cursor } from "react-simple-typewriter";
 
 export const Hero = () => {
+  const [text, helper] = useTypewriter({
+    words: ["Software Engineer", "Full-Stack Developer", "Student"],
+    loop: 0,
+    typeSpeed: 50,
+    deleteSpeed: 50,
+  })
+
   return (
     <section className="h-[100vh]">
       <BackgroundLines className="h-full -z-10">
         <RubiksCube/>
-        <TypewriterEffect words={name} className="bg-clip-text"/>
-        <TypewriterEffect words={title} className="bg-clip-text"/>
+        <div className="flex flex-col gap-1">
+          <h1 className="text-7xl font-bold">Hi, I'm James!</h1>
+          <h1 className="text-3xl">
+            I'm a {" "}
+            <span className="text-[#4A7AE2] font-bold">
+              {text}
+            </span>
+            <span>
+              <Cursor/>
+            </span>
+          </h1>
+        </div>
+
       </BackgroundLines>
     </section>
   )
 }
 
-const name = [
-  {
-    text: "James",
-  },
-  {
-    text: "Tu",
-  }
-]
-
-const title = [
-  {
-    text: "Software"
-  },
-  {
-    text: "Engineer"
-  }
-]

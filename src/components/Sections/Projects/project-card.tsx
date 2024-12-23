@@ -62,7 +62,7 @@ interface TechBadgeProps {
 const TechBadge = (props: TechBadgeProps) => {
   return (
     <motion.div 
-      className="flex items-center gap-2"
+      className="flex items-center gap-2 cursor-default"
       whileHover={{ scale: 1.1, y: -2 }}
       transition={{ duration: 0.2 }}
     >
