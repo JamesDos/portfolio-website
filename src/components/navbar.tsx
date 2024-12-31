@@ -1,5 +1,6 @@
 import { resumeLink } from "@/utils/data/resume";
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 const links = [
   {
@@ -25,8 +26,15 @@ const links = [
 ]
 
 export const NavBar = () => {
+  const [isHovered, setIsHovered] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+
   const handleReload = () => {
     window.location.reload();
+  }
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
   }
 
   return (
@@ -37,6 +45,13 @@ export const NavBar = () => {
           onClick={handleReload}
         >
           James Tu
+        </div>
+        <div className="md:hidden">
+          <button onClick={toggleMenu} className="text-white focus:outline-none">
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}></path>
+            </svg>
+          </button>
         </div>
         <ul className="mt-4 flex h-screen max-h-0 w-full flex-col gap-4 items-start text-lg opacity-0 md:mt-0 md:h-auto md:max-h-screen md:w-auto md:flex-row md:space-x-4 md:border-0 md:opacity-100">
           {

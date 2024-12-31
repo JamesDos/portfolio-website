@@ -1,38 +1,17 @@
 import HeadShot from "/images/James_Headshot.jpg"
-import { motion, useScroll, useTransform } from "framer-motion"
-import { useRef } from "react"
+import { motion } from "framer-motion"
 import { Heading } from "../../ui/heading"
 
 export const About = () => {
-  const targetRefLeft = useRef(null)
-  const targetRefRight = useRef(null)
-
-   // Scroll progress for left and right sections
-   const { scrollYProgress: scrollYProgressLeft } = useScroll({
-    target: targetRefLeft,
-    offset: ["start end", "end start"], // Triggers animation in both directions
-  });
-  const { scrollYProgress: scrollYProgressRight } = useScroll({
-    target: targetRefRight,
-    offset: ["start end", "end start"], // Same for the right
-  });
-
-
-  const translateLeft = useTransform(scrollYProgressLeft, [0, 0.4], [-300, 0])
-
-  const translateRight = useTransform(scrollYProgressRight, [0, 0.4], [300, 0])
 
   return (
     <section className="grid grid-cols-1 md:grid-cols-2 gap-8 p-8 h-[50vh]">
       <motion.div
-        ref={targetRefLeft}
-        style={{x: translateLeft}}
+        initial={{ x: "-10vw", opacity: 0 }}
+        whileInView={{ x: 0, opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ amount: 0.40 }}
         className="flex flex-col justify-center space-y-4 px-8 text-lg"
-        transition={{
-          type: "tween",
-          duration: 0.5,
-          ease: [0.4, 0, 0.2, 1], // Ease-in and ease-out
-        }}
       >
         <h2 className="text-2xl font-bold">Hello World! I'm James Tu</h2>
         <hr className="h-1 bg-gradient-to-r from-purple via-blue-500 my-4 from-[0%] via-[20%]" />
@@ -48,14 +27,11 @@ export const About = () => {
         </div>
       </motion.div>
       <motion.div
-        ref={targetRefRight}
+        initial={{ x: "10vw", opacity: 0 }}
+        whileInView={{ x: 0, opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ amount: 0.40 }}
         className="flex flex-col items-center"
-        style={{x: translateRight}}
-        transition={{
-          type: "tween",
-          duration: 0.5,
-          ease: [0.4, 0, 0.2, 1], // Ease-in and ease-out
-        }}
       >
         <Heading title="About Me"/>
         <img src={HeadShot} alt="James Tu" className="rounded-full w-64 h-64 mx-auto mt-8 mb-4" />

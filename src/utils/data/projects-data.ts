@@ -29,7 +29,7 @@ export const projectData : {title: string, content: ProjectCardProps}[] = [
   {
     title: "Scribe",
     content: {
-      description: "Scribe is a note-sharing Android app tailored for Cornell students, allowing users to publicly share class notes with other",
+      description: "Scribe is a note-sharing Android app tailored for Cornell students, allowing users to publicly share class notes with others",
       tech: ["Python", "SQLite", "SQLAlchemy", "Docker", "Google Cloud", "Git"],
       githubLink: "https://github.com/AndrewCheung360/Scribe",
       imageLinks: [ScribeLogin, ScribeFeed, ScribeSearch]

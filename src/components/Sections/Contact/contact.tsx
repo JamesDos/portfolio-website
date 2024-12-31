@@ -88,16 +88,18 @@ export const Contact = () => {
             </a>
           </motion.div>
           <motion.div
-            className="flex items-center"
-            whileHover={{ scale: 1.1, rotate: "-10deg" }}
+            className="flex items-center justify-items-center"
+            whileHover={{ scale: 1.3, rotate: "-10deg" }}
           >
-            <Button asChild
-                className="w-[72px] h-[48px] sm:w-[5vw] sm:tall:w-[6vw] bg-[#fffcf0] cursor-pointer hover:bg-[#4A7AE2] transition-colors duration-200 rounded-xl"
-              >
-                <a href="https://drive.google.com/file/d/1E7TquXToIiSKHfQzRJ6mmHPyEL6_lMcT/view?usp=sharing" target="blank" className="block w-full h-full text-center text-black">
-                  Resume
-                </a>
-              </Button>
+            <a 
+              href="https://drive.google.com/file/d/1E7TquXToIiSKHfQzRJ6mmHPyEL6_lMcT/view?usp=sharing" 
+              target="blank" 
+              className="bg-[#fffcf0] w-[8vw] h-auto px-4 py-2 flex items-center justify-center gap-2 
+              text-center cursor-pointer rounded-2xl overflow-hidden group relative transition-colors duration-200">
+                <div className = "bg-black rounded-full w-2 h-2 group-hover:scale-[4000%] group-hover:bg-[#4A7AE2] transition-all duration-300 ease-out"/>
+                <span className=" text-black group-hover:text-[#fffcf0] group-hover:-translate-x-2 
+                z-20 transition-all duration-300 ease-out">Resume</span>
+            </a>
           </motion.div>
         </div>
         <div className="flex w-full justify-between items-center">
@@ -114,7 +116,6 @@ export const Contact = () => {
             >
               <path d="M18.746 15.204l0.742-0.742-6.379-6.379-6.378 6.379 0.742 0.742 5.112-5.112v12.727h1.049v-12.727z"/>
             </svg>
-            {/* <img src={UpArrow} alt="up arrow" width={60} height={60}/> */}
           </motion.button>
         </div>
       </motion.section>}
