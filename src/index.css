@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -17,7 +16,6 @@
 
 @layer base {
   :root {
-
     --background: 0 0% 100%;
 
     --foreground: 240 10% 3.9%;
@@ -66,10 +64,9 @@
 
     --chart-5: 27 87% 67%;
 
-    --radius: 0.5rem
+    --radius: 0.5rem;
   }
   .dark {
-
     --background: 240 10% 3.9%;
 
     --foreground: 0 0% 98%;
@@ -116,7 +113,7 @@
 
     --chart-4: 280 65% 60%;
 
-    --chart-5: 340 75% 55%
+    --chart-5: 340 75% 55%;
   }
 }
 
@@ -139,6 +136,10 @@ html {
   overflow-x: hidden;
 }
 
+body {
+  width: 100%;
+}
+
 @layer utilities {
   /* For WebKit browsers (Chrome, Safari) */
   .scrollbar::-webkit-scrollbar {
@@ -156,7 +157,8 @@ html {
   /* For Firefox */
   html {
     scrollbar-width: thin; /* Thin scrollbar */
-    scrollbar-color: linear-gradient(180deg, #6a11cb 0%, #2575fc 100%) transparent; /* Gradient color and transparent track */
+    scrollbar-color: linear-gradient(180deg, #6a11cb 0%, #2575fc 100%)
+      transparent; /* Gradient color and transparent track */
   }
 }
 
@@ -170,12 +172,20 @@ html {
 }
 
 .scrollbar::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #6a11cb 0%, #2575fc 100%); /* Gradient color */
+  background: linear-gradient(
+    180deg,
+    #6a11cb 0%,
+    #2575fc 100%
+  ); /* Gradient color */
   border-radius: 6px; /* Rounded corners */
 }
 
 .scrollbar::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #6a11cb 0%, #2575fc 100%); /* Gradient color on hover */
+  background: linear-gradient(
+    180deg,
+    #6a11cb 0%,
+    #2575fc 100%
+  ); /* Gradient color on hover */
 }
 
 /* For Firefox */

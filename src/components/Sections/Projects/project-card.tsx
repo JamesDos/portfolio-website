@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { getSkillIconSrc } from "@/utils/data/getIconSrc";
+import { useEffect, useState } from "react";
 
 export interface TechData {
   title: string;
@@ -14,6 +15,33 @@ export interface ProjectCardProps {
 }
 
 export const ProjectCard = (props: ProjectCardProps) => {
+
+  const [imageAspectRatios, setImageAspectRatios] = useState<{ [key: string]: boolean }>({});
+
+  useEffect(() => {
+    // Preload images and determine aspect ratios
+    const preloadImages = async () => {
+      const ratios: { [key: string]: boolean } = {};
+
+      await Promise.all(
+        props.imageLinks.map((link) => {
+          return new Promise<void>((resolve) => {
+            const img = new Image();
+            img.src = link;
+            img.onload = () => {
+              ratios[link] = img.height > img.width; // Determine if the image is tall
+              resolve();
+            };
+          });
+        })
+      );
+
+      setImageAspectRatios(ratios);
+    };
+
+    preloadImages();
+  }, [props.imageLinks]);
+
   return (
     <motion.div 
       className="project-card"
@@ -23,18 +51,19 @@ export const ProjectCard = (props: ProjectCardProps) => {
     >
       <div className="flex flex-col">
         <h2 className="font-bold text-xl mb-4">{props.description}</h2>
-        <ul className="flex space-x-2 mb-4 gap-2">
+        <ul className="flex flex-wrap justify-start mb-4 gap-4">
           {props.tech.map((techItem, index) => (
             <TechBadge key={index} tech={techItem} className="project-tech-badge"/>
           ))}
         </ul>
-        <div className="flex gap-4 w-full justify-center">
+        <div className={`flex flex-wrap gap-8 w-full justify-center`}>
           {props.imageLinks.map((imageLink, index) => (
             <img 
               key={index} 
               src={imageLink} 
               alt={`Project image ${index + 1}`} 
-              className="project-image max-h-[60vh] mt-4 mb-4 rounded-lg transition-transform duration-300 transform hover:scale-105" 
+              className={`${imageAspectRatios[imageLink] ? "max-w-[50vw] h-auto md:max-w-[15vw]" : "w-full max-w-full h-auto"} 
+              mt-4 mb-4 rounded-lg transition-transform duration-300 transform hover:scale-105`} 
             />
           ))}
         </div>

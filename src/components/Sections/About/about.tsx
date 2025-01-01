@@ -5,9 +5,19 @@ import { Heading } from "../../ui/heading"
 export const About = () => {
 
   return (
-    <section className="grid grid-cols-1 md:grid-cols-2 gap-8 p-8 h-[50vh]">
+    <section className="grid grid-cols-1 md:grid-cols-2 gap-8 p-8 h-auto md:h-[50vh]">
       <motion.div
         initial={{ x: "-10vw", opacity: 0 }}
+        whileInView={{ x: 0, opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ amount: 0.40 }}
+        className="flex flex-col items-center"
+      >
+        <Heading title="About Me"/>
+        <img src={HeadShot} alt="James Tu" className="rounded-full w-64 h-64 mx-auto mt-8 mb-8 md:mb-4" />
+      </motion.div>
+      <motion.div
+        initial={{ x: "10vw", opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.5 }}
         viewport={{ amount: 0.40 }}
@@ -25,16 +35,6 @@ export const About = () => {
           When I'm not working, you can find me playing Chess, fiddling with a Rubik's cube,
           or practicing the ukulele.
         </div>
-      </motion.div>
-      <motion.div
-        initial={{ x: "10vw", opacity: 0 }}
-        whileInView={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.5 }}
-        viewport={{ amount: 0.40 }}
-        className="flex flex-col items-center"
-      >
-        <Heading title="About Me"/>
-        <img src={HeadShot} alt="James Tu" className="rounded-full w-64 h-64 mx-auto mt-8 mb-4" />
       </motion.div>
     </section>
   )

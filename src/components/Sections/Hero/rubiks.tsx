@@ -45,8 +45,11 @@ const MeshComponent = () => {
 
 export const RubiksCube = () => {
   return (
-    <div className='flex justify-center items-center h-[55vh] bg-clip-text p-0 m-0'>
-      <Canvas className='h-2xl w-2xl'>
+    <div className='flex justify-center items-center h-[30vh] md:h-[55vh] bg-clip-text p-0 m-0'>
+      <Canvas 
+        style={{ width: "100%", height: "100%" }}
+        camera={{ position: [0, 0, 5] }}
+      >
         <ambientLight />
         <pointLight position={[10, 10, 10]} />
         <MeshComponent />

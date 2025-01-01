@@ -11,22 +11,23 @@ export const Hero = () => {
   })
 
   return (
-    <section className="h-[100vh]">
+    <section className="h-[75vh] md:h-[100vh] flex items-center justify-center">
       <BackgroundLines className="h-full -z-10">
-        <RubiksCube/>
-        <div className="flex flex-col gap-1">
-          <h1 className="text-7xl font-bold">Hi, I'm James!</h1>
-          <h1 className="text-3xl">
-            I'm a {" "}
-            <span className="text-[#4A7AE2] font-bold">
-              {text}
-            </span>
-            <span>
-              <Cursor/>
-            </span>
-          </h1>
+        <div className="w-full h-full flex flex-col items-center justify-center">
+          <RubiksCube/>
+          <div className="flex flex-col gap-1 text-center px-4">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold">Hi, I'm James!</h1>
+            <h1 className="text-xl sm:text-2xl md:text-3xl">
+              I'm a {" "}
+              <span className="text-[#4A7AE2] font-bold">
+                {text}
+              </span>
+              <span>
+                <Cursor/>
+              </span>
+            </h1>
+          </div>
         </div>
-
       </BackgroundLines>
     </section>
   )
