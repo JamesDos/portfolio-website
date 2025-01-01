@@ -3,12 +3,12 @@ import { BackgroundLines } from "@/components/ui/background-lines";
 import { useTypewriter, Cursor } from "react-simple-typewriter";
 
 export const Hero = () => {
-  const [text, helper] = useTypewriter({
+  const text = useTypewriter({
     words: ["Software Engineer", "Full-Stack Developer", "Student"],
     loop: 0,
     typeSpeed: 50,
     deleteSpeed: 50,
-  })
+  })[0]
 
   return (
     <section className="h-[75vh] md:h-[100vh] flex items-center justify-center">

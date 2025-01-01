@@ -1,4 +1,3 @@
-import { motion } from "framer-motion"
 import { links } from "./navlinks"
 import { NavItem } from "./navItem"
 
