@@ -23,7 +23,7 @@ export const Contact = () => {
           <a href="https://github.com/JamesDos" target="blank">
             <svg
             viewBox="0 0 1024 1024"
-            className = "w-[12vw] sm:w-[5vw] sm:tall:w-[6vw] fill-[#fffcf0] cursor-pointer hover:fill-[#4A7AE2]"
+            className = "w-[12vw] sm:w-[10vw] sm:tall:w-[6vw] xl:w-[5vw] fill-[#fffcf0] cursor-pointer hover:fill-[#4A7AE2]"
             style = {{
                 transition: "fill 0.2s"
             }}
@@ -37,7 +37,7 @@ export const Contact = () => {
           whileHover={{ scale: 1.1, rotate: "-10deg" }}
         >
           <a href="https://www.linkedin.com/in/jamestu2026/" target="blank">
-            <svg fill="none" viewBox="0 0 15 15" className = "w-[12vw] sm:w-[5vw] sm:tall:w-[6vw]  fill-[#fffcf0] cursor-pointer hover:fill-[#4A7AE2]"
+            <svg fill="none" viewBox="0 0 15 15" className = "w-[12vw] sm:w-[10vw] sm:tall:w-[6vw] xl:w-[5vw] fill-[#fffcf0] cursor-pointer hover:fill-[#4A7AE2]"
                   style = {{
                       transition: "fill 0.2s"
                   }}>
@@ -55,7 +55,7 @@ export const Contact = () => {
         >
           <a href="mailto:jamestucontact@gmail.com" target="blank">
             <svg viewBox="0 0 24 24"
-              className = "w-[15vw] sm:w-[5vw] sm:tall:w-[6vw]  fill-[#fffcf0] cursor-pointer hover:fill-[#4A7AE2]"
+              className = "w-[15vw] sm:w-[10vw] xl:w-[5vw] fill-[#fffcf0] cursor-pointer hover:fill-[#4A7AE2]"
               style = {{
                   transition: "fill 0.2s"
               }}
@@ -71,7 +71,7 @@ export const Contact = () => {
           <a 
             href="https://drive.google.com/file/d/1E7TquXToIiSKHfQzRJ6mmHPyEL6_lMcT/view?usp=sharing" 
             target="blank" 
-            className="bg-[#fffcf0] w-[28vw] md:w-[8vw] h-auto px-2 py-2 flex items-center justify-center gap-2 
+            className="bg-[#fffcf0] w-[25vw] md:w-[20vw] lg:w-[15vw] xl:w-[10vw] h-auto px-2 py-2 flex items-center justify-center gap-2 
             text-center cursor-pointer rounded-2xl overflow-hidden group relative transition-colors duration-200">
               <div className = "bg-black rounded-full w-2 h-2 group-hover:scale-[4000%] group-hover:bg-[#4A7AE2] transition-all duration-300 ease-out"/>
               <span className=" text-black group-hover:text-[#fffcf0] group-hover:-translate-x-2 
@@ -89,7 +89,7 @@ export const Contact = () => {
           transition={{ duration: 0.3 }}
         >
           <svg viewBox="0 0 24 24"
-            className = "w-[10vw] sm:w-[5vw] sm:tall:w-[6vw]  fill-[#fffcf0] cursor-pointer hover:fill-[#4A7AE2]"
+            className = "w-[10vw] sm:w-[5vw] sm:tall:w-[6vw] fill-[#fffcf0] cursor-pointer hover:fill-[#4A7AE2]"
           >
             <path d="M18.746 15.204l0.742-0.742-6.379-6.379-6.378 6.379 0.742 0.742 5.112-5.112v12.727h1.049v-12.727z"/>
           </svg>
