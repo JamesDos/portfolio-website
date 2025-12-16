@@ -1,4 +1,4 @@
-import { cn } from "../../lib/utils";
+import { cn } from "../../../lib/utils";
 import { motion, stagger, useAnimate, useInView } from "framer-motion";
 import { useEffect } from "react";
 
@@ -15,7 +15,7 @@ export const TypewriterEffect = ({
   cursorClassName?: string;
 }) => {
   // split text inside of words into array of characters
-  const wordsArray = words.map((word) => {
+  const wordsArray = words.map(word => {
     return {
       ...word,
       text: word.text.split(""),
@@ -54,10 +54,7 @@ export const TypewriterEffect = ({
                 <motion.span
                   initial={{}}
                   key={`char-${index}`}
-                  className={cn(
-                    `dark:text-white text-black opacity-0 hidden`,
-                    word.className
-                  )}
+                  className={cn(`dark:text-white text-black opacity-0 hidden`, word.className)}
                 >
                   {char}
                 </motion.span>
@@ -111,7 +108,7 @@ export const TypewriterEffectSmooth = ({
   cursorClassName?: string;
 }) => {
   // split text inside of words into array of characters
-  const wordsArray = words.map((word) => {
+  const wordsArray = words.map(word => {
     return {
       ...word,
       text: word.text.split(""),
@@ -177,10 +174,7 @@ export const TypewriterEffectSmooth = ({
           repeat: Infinity,
           repeatType: "reverse",
         }}
-        className={cn(
-          "block rounded-sm w-[4px]  h-4 sm:h-6 xl:h-12 bg-blue-500",
-          cursorClassName
-        )}
+        className={cn("block rounded-sm w-[4px]  h-4 sm:h-6 xl:h-12 bg-blue-500", cursorClassName)}
       ></motion.span>
     </div>
   );
