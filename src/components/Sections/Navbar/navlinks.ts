@@ -10,6 +10,10 @@ export const links = [
       text: "Skills"
   },
   {
+      href: "#experience",
+      text: "Experience"
+  },
+  {
       href: "#projects",
       text: "Projects"
   },
