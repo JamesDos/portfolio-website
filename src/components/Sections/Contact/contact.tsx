@@ -1,4 +1,7 @@
 import { motion } from "framer-motion";
+import Particles from "@/components/ui/particle-background";
+import * as Constants from "../../../utils/constants/constants";
+import TrueFocus from "@/components/ui/true-focus";
 
 
 const scrollToTop = () => {
@@ -9,15 +12,42 @@ export const Contact = () => {
 
   return (
     <motion.section
-      className="flex flex-col items-center w-full px-6 py-12 md:px-12 md:py-12"
+      className="relative flex flex-col items-center w-full min-h-screen px-6 py-16 md:px-12 overflow-hidden"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <h1 className="flex justify-center w-full text-4xl font-bold mb-6 md:mb-12">Contact Me</h1>
-      <div className="flex justify-around items-center w-full mb-6">
-        <motion.div 
-          className="flex"
+      <div className="absolute inset-0 w-full h-full">
+        <Particles
+          particleCount={200}
+          particleSpread={10}
+          speed={0.15}
+          particleColors={Constants.rainbowColors}
+          alphaParticles={true}
+          particleBaseSize={350}
+          moveParticlesOnHover={true}
+          disableRotation={false}
+        />
+      </div>
+
+      <div className="relative z-10 flex flex-col items-center justify-between w-full max-w-6xl h-full min-h-screen pointer-events-none">
+      <div className="flex-1 flex flex-col items-center justify-center gap-12 md:gap-16 w-full pt-24 md:pt-32">
+
+      <div className="flex justify-center w-full text-5xl md:text-6xl lg:text-7xl">
+        <TrueFocus 
+          sentence="Contact Me"
+          manualMode={false}
+          blurAmount={3}
+          borderColor="#4A7AE2"
+          animationDuration={1}
+          pauseBetweenAnimations={1}
+        />
+      </div>
+
+      {/* <h1 className="flex justify-center w-full text-5xl md:text-6xl lg:text-7xl font-bold">Contact Me</h1> */}
+      <div className="flex justify-around items-center w-full gap-6 md:gap-8">
+        <motion.div
+          className="flex pointer-events-auto"
           whileHover={{ scale: 1.1, rotate: "-10deg" }}
         >
           <a href="https://github.com/JamesDos" target="blank">
@@ -32,8 +62,8 @@ export const Contact = () => {
             </svg>
           </a>
         </motion.div>
-        <motion.div 
-          className="flex"
+        <motion.div
+          className="flex pointer-events-auto"
           whileHover={{ scale: 1.1, rotate: "-10deg" }}
         >
           <a href="https://www.linkedin.com/in/jamestu2026/" target="blank">
@@ -49,8 +79,8 @@ export const Contact = () => {
             </svg>
           </a>
         </motion.div>
-        <motion.div 
-          className="flex"
+        <motion.div
+          className="flex pointer-events-auto"
           whileHover={{ scale: 1.1, rotate: "-10deg" }}
         >
           <a href="mailto:jamestucontact@gmail.com" target="blank">
@@ -65,11 +95,11 @@ export const Contact = () => {
           </a>
         </motion.div>
         <motion.div
-          className="flex items-center justify-items-center"
+          className="flex items-center justify-items-center pointer-events-auto"
           whileHover={{ scale: 1.3, rotate: "-10deg" }}
         >
-          <a 
-            href="https://drive.google.com/file/d/1E7TquXToIiSKHfQzRJ6mmHPyEL6_lMcT/view?usp=sharing" 
+          <a
+            href="https://drive.google.com/file/d/1E7TquXToIiSKHfQzRJ6mmHPyEL6_lMcT/view?usp=sharing"
             target="blank" 
             className="bg-[#fffcf0] w-[25vw] md:w-[20vw] lg:w-[15vw] xl:w-[10vw] h-auto px-2 py-2 flex items-center justify-center gap-2 
             text-center cursor-pointer rounded-2xl overflow-hidden group relative transition-colors duration-200">
@@ -79,14 +109,16 @@ export const Contact = () => {
           </a>
         </motion.div>
       </div>
-      <div className="flex w-full justify-between items-center">
-        <div className="text-center">
+      </div>
+      <div className="flex w-full justify-between items-center pb-4">
+        <div className="text-center text-sm md:text-base">
           &copy; {new Date().getFullYear()} James Tu
         </div>
-        <motion.button 
-          onClick={scrollToTop} 
+        <motion.button
+          onClick={scrollToTop}
           whileHover={{ scale: 1.1, rotate: "360deg" }}
           transition={{ duration: 0.3 }}
+          className="pointer-events-auto"
         >
           <svg viewBox="0 0 24 24"
             className = "w-[10vw] sm:w-[5vw] sm:tall:w-[6vw] fill-[#fffcf0] cursor-pointer hover:fill-[#4A7AE2]"
@@ -94,6 +126,7 @@ export const Contact = () => {
             <path d="M18.746 15.204l0.742-0.742-6.379-6.379-6.378 6.379 0.742 0.742 5.112-5.112v12.727h1.049v-12.727z"/>
           </svg>
         </motion.button>
+      </div>
       </div>
     </motion.section>
   );
