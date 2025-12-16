@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import React from "react";
-import * as Constants from "../../utils/constants/constants"
+import * as Constants from "../../../utils/constants/constants";
 
 export const BackgroundLines = ({
   children,
@@ -21,11 +21,8 @@ export const BackgroundLines = ({
         className
       )}
     >
-      <SVG 
-        svgOptions={svgOptions} />
-        <div className="relative z-10">
-          {children}
-        </div>
+      <SVG svgOptions={svgOptions} />
+      <div className="relative z-10">{children}</div>
     </div>
   );
 };
@@ -71,7 +68,7 @@ const SVG = ({
   ];
 
   const colors = Constants.rainbowColors;
-  
+
   return (
     <motion.svg
       viewBox="0 0 1440 900"
