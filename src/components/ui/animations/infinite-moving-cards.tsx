@@ -31,15 +31,6 @@ export const InfiniteMovingCards = ({
   const [start, setStart] = useState(false);
   function addAnimation() {
     if (containerRef.current && scrollerRef.current) {
-      const scrollerContent = Array.from(scrollerRef.current.children);
-
-      scrollerContent.forEach((item) => {
-        const duplicatedItem = item.cloneNode(true);
-        if (scrollerRef.current) {
-          scrollerRef.current.appendChild(duplicatedItem);
-        }
-      });
-
       getDirection();
       getSpeed();
       setStart(true);
@@ -71,6 +62,10 @@ export const InfiniteMovingCards = ({
       }
     }
   };
+
+  // Duplicate items in React instead of DOM cloning
+  const duplicatedItems = [...items, ...items];
+
   return (
     <div
       ref={containerRef}
@@ -87,9 +82,9 @@ export const InfiniteMovingCards = ({
           pauseOnHover && "hover:[animation-play-state:paused]"
         )}
       >
-        {items.map((item, idx) => (
+        {duplicatedItems.map((item, idx) => (
           <SkillsCard
-            key={idx}
+            key={`${item.skill}-${idx}`}
             icon={item.icon}
             alt={item.alt}
             skill={item.skill}
@@ -107,13 +102,17 @@ interface SkillsCardProps {
 }
 
 const SkillsCard = (props: SkillsCardProps) => {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
     <motion.div
-      whileHover={{ scale: 1.1 }}
+      animate={{ scale: isHovered ? 1.1 : 1 }}
       transition={{
         duration: 0.125,
         ease: "easeInOut",
       }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
     <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-blue-300 to-transparent" />
     <li

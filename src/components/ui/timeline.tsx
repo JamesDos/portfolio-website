@@ -1,9 +1,7 @@
-import {
-  useScroll,
-  useTransform,
-  motion,
-} from "framer-motion";
+import { useScroll, useTransform, motion } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
+// @ts-ignore - splitText.jsx doesn't have type definitions
+import SplitText from "@/components/ui/general/splitText";
 
 // import { Heading } from "./heading";
 
@@ -18,11 +16,33 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
   const [height, setHeight] = useState(0);
 
   useEffect(() => {
-    if (ref.current) {
-      const rect = ref.current.getBoundingClientRect();
-      setHeight(rect.height);
-    }
-  }, [ref]);
+    if (!ref.current) return;
+
+    const updateHeight = () => {
+      if (ref.current) {
+        const rect = ref.current.getBoundingClientRect();
+        setHeight(rect.height);
+      }
+    };
+
+    // Initial height calculation
+    updateHeight();
+
+    // Create ResizeObserver to watch for content changes
+    const resizeObserver = new ResizeObserver(() => {
+      updateHeight();
+    });
+
+    resizeObserver.observe(ref.current);
+
+    // Also update on window resize
+    window.addEventListener('resize', updateHeight);
+
+    return () => {
+      resizeObserver.disconnect();
+      window.removeEventListener('resize', updateHeight);
+    };
+  }, []);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -39,19 +59,19 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
     >
       <div className="max-w-7xl mx-auto py-10 px-4 md:px-8 lg:px-10">
         {/* <Heading title="Projects"/> */}
-        <h1 className="text-3xl md:text-4xl mb-4 text-black dark:text-white max-w-4xl">
-          Projects
-        </h1>
-        <p className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base max-w-sm">
-          Here are some of my selected projects.
-        </p>
+        <SplitText
+          text="Projects"
+          tag="h2"
+          className="text-4xl md:text-5xl mb-4 font-bold text-black dark:text-white block"
+          textAlign="left"
+        />
       </div>
 
       <div ref={ref} className="relative max-w-7xl mx-auto pb-4 md:pb-20">
         {data.map((item, index) => (
           <div
             key={index}
-            className="flex justify-start pt-10 md:pt-40 md:gap-10"
+            className={`flex justify-start ${index === 0 ? "pt-4 md:pt-10" : "pt-10 md:pt-40"} md:gap-10`}
           >
             <div className="sticky flex flex-col md:flex-row z-40 items-center top-40 self-start max-w-xs lg:max-w-sm md:w-full">
               <div className="h-10 absolute left-3 md:left-3 w-10 rounded-full bg-white dark:bg-black flex items-center justify-center">
@@ -70,7 +90,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
             </div>
           </div>
         ))}
-        <div 
+        <div
           style={{
             height: height + "px",
           }}

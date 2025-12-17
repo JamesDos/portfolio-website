@@ -9,18 +9,18 @@ gsap.registerPlugin(ScrollTrigger, GSAPSplitText, useGSAP);
 const SplitText = ({
   text,
   className = "",
-  delay = 100,
-  duration = 0.6,
+  delay = 0,
+  duration = 0.4,
   ease = "power3.out",
-  splitType = "chars",
-  from = { opacity: 0, y: 40 },
+  splitType = "lines",
+  from = { opacity: 0, y: 20 },
   to = { opacity: 1, y: 0 },
   threshold = 0.1,
   rootMargin = "-100px",
   textAlign = "center",
   tag = "p",
   onLetterAnimationComplete,
-  mask = null, // Add mask property: 'lines', 'words', 'chars', or null
+  mask = "lines", // Add mask property: 'lines', 'words', 'chars', or null
 }) => {
   const ref = useRef(null);
   const animationCompletedRef = useRef(false);

@@ -46,16 +46,16 @@ export const experienceData: Experience[] = [
       "Collaborated with professors and TAs in designing course curriculum and grading weekly assignments.",
     ],
   },
-  {
-    company: "Cornell University",
-    role: "Bachelor of Arts - Computer Science",
-    location: "Ithaca, NY",
-    startDate: "Aug. 2022",
-    endDate: "May 2026",
-    responsibilities: [
-      "Relevant Coursework: Object-Oriented Programming and Data Structures, Analysis of Algorithms, Embedded \
-      Systems, Machine Learning, Database Systems, Robotics, Business Intelligence Systems, iOS & Backend Development",
-      "Deans list: Spring 2022 - Spring 2025",
-    ],
-  },
+  // {
+  //   company: "Cornell University",
+  //   role: "Bachelor of Arts - Computer Science",
+  //   location: "Ithaca, NY",
+  //   startDate: "Aug. 2022",
+  //   endDate: "May 2026",
+  //   responsibilities: [
+  //     "Relevant Coursework: Object-Oriented Programming and Data Structures, Analysis of Algorithms, Embedded \
+  //     Systems, Machine Learning, Database Systems, Robotics, Business Intelligence Systems, iOS & Backend Development",
+  //     "Deans list: Spring 2022 - Spring 2025",
+  //   ],
+  // },
 ];

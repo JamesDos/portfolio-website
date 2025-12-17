@@ -4,8 +4,8 @@ import { Heading } from "../../ui/general/heading";
 
 export const Skills = () => {
   return (
-    <section className="py-8">
-      <Heading title="Skills" />
+    <section className="py-8 flex flex-col center">
+      <Heading title="Skills" textAlign="center" />
       <div>
         <InfiniteMovingCards items={skillsDataFrontEnd} direction="right" speed="slow" />
       </div>
