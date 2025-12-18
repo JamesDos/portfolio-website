@@ -36,6 +36,8 @@ import scikitlearn from "/skill-icons/scikit-learn.svg";
 import seaborn from "/skill-icons/seaborn.svg";
 import openai from "/skill-icons/openai.svg";
 import pinata from "/skill-icons/pinata.svg";
+import libgdx from "/skill-icons/libgdx.svg";
+import gradle from "/skill-icons/gradle.svg";
 
 // Mapping of skill names to image sources
 const skillIcons: { [key: string]: string } = {
@@ -70,6 +72,8 @@ const skillIcons: { [key: string]: string } = {
   seaborn,
   openai,
   pinata,
+  libgdx,
+  gradle,
 };
 
 // Function to get the image source for a given skill
