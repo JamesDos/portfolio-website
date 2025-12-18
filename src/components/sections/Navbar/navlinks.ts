@@ -1,28 +1,32 @@
-import { resumeLink } from "@/utils/data/resume";
+//import { resumeLink } from "@/utils/data/resume";
 
 export const links = [
   {
-      href: "#about",
-      text: "About"
+    href: "#hero",
+    text: "Home",
   },
   {
-      href: "#skills",
-      text: "Skills"
+    href: "#about",
+    text: "About",
   },
   {
-      href: "#experience",
-      text: "Experience"
+    href: "#skills",
+    text: "Skills",
   },
   {
-      href: "#projects",
-      text: "Projects"
+    href: "#experience",
+    text: "Experience",
   },
   {
-      href: "#contact",
-      text: "Contact"
+    href: "#projects",
+    text: "Projects",
   },
   {
-      href: resumeLink,
-      text: "Resume"
-  }
-]
+    href: "#contact",
+    text: "Contact",
+  },
+  //   {
+  //       href: resumeLink,
+  //       text: "Resume"
+  //   }
+];

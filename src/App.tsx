@@ -59,13 +59,9 @@ const App = () => {
         <section id="projects">
           <Projects />
         </section>
-        <div className="contact-wrapper">
-          <div className="contact-fixed">
-            <section id="contact">
-              <Contact />
-            </section>
-          </div>
-        </div>
+        <section id="contact">
+          <Contact />
+        </section>
       </main>
     </ThemeProvider>
   );
