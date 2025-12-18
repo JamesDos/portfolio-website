@@ -9,6 +9,7 @@ import { Experience } from "./components/sections/Experience/experience";
 import PreLoader from "./components/ui/animations/preloader/preloader";
 import { AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
+import "./App.css";
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -58,9 +59,13 @@ const App = () => {
         <section id="projects">
           <Projects />
         </section>
-        <section id="contact">
-          <Contact />
-        </section>
+        <div className="contact-wrapper">
+          <div className="contact-fixed">
+            <section id="contact">
+              <Contact />
+            </section>
+          </div>
+        </div>
       </main>
     </ThemeProvider>
   );
