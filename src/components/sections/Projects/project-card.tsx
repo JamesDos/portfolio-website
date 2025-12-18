@@ -3,21 +3,32 @@ import { getSkillIconSrc } from "@/utils/data/getIconSrc";
 import { useEffect, useState } from "react";
 // @ts-ignore - splitText.jsx doesn't have type definitions
 import SplitText from "@/components/ui/general/splitText";
+import PixelTransition from "@/components/ui/animations/pixelTransition";
 
 export interface TechData {
   title: string;
   iconSrc: string;
 }
 
+export interface imageData {
+  front: string;
+  back: string;
+}
+
 export interface ProjectCardProps {
   description: string;
   tech: string[];
   githubLink: string;
-  imageLinks: string[];
+  imageLinks: imageData[];
 }
 
 export const ProjectCard = (props: ProjectCardProps) => {
   const [imageAspectRatios, setImageAspectRatios] = useState<{ [key: string]: boolean }>({});
+
+  // Debug logging
+  useEffect(() => {
+    console.log("ProjectCard imageLinks:", props.imageLinks);
+  }, [props.imageLinks]);
 
   useEffect(() => {
     // Preload images and determine aspect ratios
@@ -25,16 +36,34 @@ export const ProjectCard = (props: ProjectCardProps) => {
       const ratios: { [key: string]: boolean } = {};
 
       await Promise.all(
-        props.imageLinks.map(link => {
-          return new Promise<void>(resolve => {
+        props.imageLinks.flatMap(imageData => [
+          new Promise<void>((resolve) => {
             const img = new Image();
-            img.src = link;
+            img.src = imageData.front;
             img.onload = () => {
-              ratios[link] = img.height > img.width; // Determine if the image is tall
+              ratios[imageData.front] = img.height > img.width; // Determine if the image is tall
               resolve();
             };
-          });
-        })
+            img.onerror = () => {
+              console.error(`Failed to load image: ${imageData.front}`);
+              ratios[imageData.front] = false; // Default to landscape if image fails to load
+              resolve();
+            };
+          }),
+          new Promise<void>((resolve) => {
+            const img = new Image();
+            img.src = imageData.back;
+            img.onload = () => {
+              ratios[imageData.back] = img.height > img.width; // Determine if the image is tall
+              resolve();
+            };
+            img.onerror = () => {
+              console.error(`Failed to load image: ${imageData.back}`);
+              ratios[imageData.back] = false; // Default to landscape if image fails to load
+              resolve();
+            };
+          }),
+        ])
       );
 
       setImageAspectRatios(ratios);
@@ -63,15 +92,34 @@ export const ProjectCard = (props: ProjectCardProps) => {
           ))}
         </ul>
         <div className={`flex flex-wrap gap-8 w-full justify-center`}>
-          {props.imageLinks.map((imageLink, index) => (
-            <img
-              key={index}
-              src={imageLink}
-              alt={`Project image ${index + 1}`}
-              className={`${imageAspectRatios[imageLink] ? "max-w-[50vw] h-auto md:max-w-[15vw]" : "w-full max-w-full h-auto"} 
-              mt-4 mb-4 rounded-lg transition-transform duration-300 transform hover:scale-105`}
-            />
-          ))}
+          {props.imageLinks.map((imageData, index) => {
+            const isTall = imageAspectRatios[imageData.front];
+            return (
+              <PixelTransition
+                key={index}
+                firstContent={
+                  <img
+                    src={imageData.front}
+                    alt={`Project image ${index + 1} - front`}
+                    className="w-full h-full object-cover rounded-lg"
+                  />
+                }
+                secondContent={
+                  <img
+                    src={imageData.back}
+                    alt={`Project image ${index + 1} - back`}
+                    className="w-full h-full object-cover rounded-lg"
+                  />
+                }
+                gridSize={15}
+                pixelColor={["#FFFFFF"]}
+                animationStepDuration={0.35}
+                className={`${isTall ? "w-[200px] md:w-[250px]" : "w-full max-w-full"}
+                  mt-4 mb-4 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300`}
+                aspectRatio={isTall ? "177.78%" : "56.25%"}
+              />
+            );
+          })}
         </div>
         <div className="flex justify-center w-full mt-2">
           <a href={props.githubLink} target="_blank" rel="noopener noreferrer">
