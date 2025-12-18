@@ -9,7 +9,7 @@ export const Experience = () => {
         <SplitText
           text="Experience"
           tag="h2"
-          className="text-3xl md:text-4xl mb-4 font-bold text-black dark:text-white block"
+          className="text-4xl md:text-5xl mb-4 font-bold text-black dark:text-white block"
           textAlign="left"
           splitType="lines"
           delay={0}

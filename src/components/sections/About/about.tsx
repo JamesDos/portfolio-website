@@ -1,6 +1,8 @@
 import HeadShot from "/images/James_Headshot.jpg";
 import { motion } from "framer-motion";
 import { Heading } from "../../ui/general/heading";
+// @ts-ignore - splitText.jsx doesn't have type definitions
+import SplitText from "@/components/ui/general/splitText";
 
 export const About = () => {
   return (
@@ -26,18 +28,46 @@ export const About = () => {
         viewport={{ amount: 0.4 }}
         className="flex flex-col justify-center space-y-4 px-8 text-lg"
       >
-        <h2 className="text-2xl font-bold">Hello World! I'm James Tu</h2>
+        <SplitText
+          text="Hello World! I'm James Tu"
+          tag="h2"
+          className="text-2xl font-bold block"
+          textAlign="left"
+          splitType="lines"
+          delay={0}
+          duration={0.4}
+          from={{ opacity: 0, y: 20 }}
+          to={{ opacity: 1, y: 0 }}
+          threshold={0.1}
+          mask="lines"
+        />
         <hr className="h-1 bg-gradient-to-r from-purple via-blue-500 my-4 from-[0%] via-[20%]" />
-        <div>
-          I am a software engineer and student at Cornell University studying Computer Science with
-          a minor in AI. I'm passionate about leveraging full-stack development and AI to create
-          innovative solutions to real-world problems. I love solving puzzles, bringing ideas to
-          life, and collaborating with teams to deliver amazing solutions.
-        </div>
-        <div>
-          When I'm not working, you can find me playing Chess, fiddling with a Rubik's cube, or
-          practicing the ukulele.
-        </div>
+        <SplitText
+          text="I am a software engineer and student at Cornell University studying Computer Science with a minor in AI. I'm passionate about leveraging full-stack development and AI to create innovative solutions to real-world problems. I love solving puzzles, bringing ideas to life, and collaborating with teams to deliver amazing solutions."
+          tag="div"
+          className="block"
+          textAlign="left"
+          splitType="lines"
+          delay={0.1}
+          duration={0.4}
+          from={{ opacity: 0, y: 20 }}
+          to={{ opacity: 1, y: 0 }}
+          threshold={0.1}
+          mask="lines"
+        />
+        <SplitText
+          text="When I'm not working, you can find me playing Chess, fiddling with a Rubik's cube, or practicing the ukulele."
+          tag="div"
+          className="block"
+          textAlign="left"
+          splitType="lines"
+          delay={0.2}
+          duration={0.4}
+          from={{ opacity: 0, y: 20 }}
+          to={{ opacity: 1, y: 0 }}
+          threshold={0.1}
+          mask="lines"
+        />
       </motion.div>
     </section>
   );
